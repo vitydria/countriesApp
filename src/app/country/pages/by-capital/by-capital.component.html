@@ -1,0 +1,17 @@
+<h3> Search by capital </h3>
+<hr>
+<div class="row">
+  <div class="col">
+    <app-country-input (onEnter)="search( $event )" (onDebounce)="suggestions( $event )"
+      placeholder="Search capital..."></app-country-input>
+  </div>
+</div>
+<hr>
+<div class="alert alert-danger" *ngIf="error">
+  There is no result with {{term}}
+</div>
+<div class="row" *ngIf="!error">
+  <div class="col">
+    <app-country-table [countries]="countries"></app-country-table>
+  </div>
+</div>
