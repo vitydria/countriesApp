@@ -15,3 +15,13 @@
     <app-country-table [countries]="countries"></app-country-table>
   </div>
 </div>
+
+<ul *ngIf="showSuggestions" class="list-group">
+  <li class="list-group-item list-group-item-action" *ngFor="let countries of suggestedCountries">
+    <a class="nav-link" [routerLink]="['/country', countries.cca2]">{{countries.name.common}}</a>
+  </li>
+  <li class="list-group-item list-group-item-action" (click)="searchSuggested(term)">
+    <a class="nav-link">Search {{term}}</a>
+  </li>
+
+</ul>
